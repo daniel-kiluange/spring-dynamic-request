@@ -1,9 +1,15 @@
 package com.example.springmutablerequest.engine;
 
 import java.util.Collection;
-import lombok.Data;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
 
-@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@ToString
 public class UpdateMessageBody {
   private Collection<Integer> ids;
   private String p2;
