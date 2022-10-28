@@ -23,7 +23,7 @@ public class MessageStrategy {
         var message = new UpdateMessage(content);
         yield new Engine<>(message, applicationEventPublisher);
       }
-      default -> null;
+      default -> throw new RuntimeException("Nothing to do");
     };
 
     engine.run();
