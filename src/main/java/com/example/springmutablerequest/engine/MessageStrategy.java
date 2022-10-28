@@ -12,12 +12,16 @@ public class MessageStrategy {
   private final ApplicationEventPublisher applicationEventPublisher;
 
 
-  public void execute(String context, Map<String, ?> content){
-    var engine = switch (context){
+  public void execute(String context, Map<String, ?> content) {
+    var engine = switch (context) {
 
       case "order" -> {
         var message = new OrderMessage(content);
-        yield new Engine<>(message,applicationEventPublisher);
+        yield new Engine<>(message, applicationEventPublisher);
+      }
+      case "update" -> {
+        var message = new UpdateMessage(content);
+        yield new Engine<>(message, applicationEventPublisher);
       }
       default -> null;
     };
